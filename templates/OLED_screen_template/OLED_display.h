@@ -13,7 +13,7 @@
 #define OLED_RESET    (-1)
 extern HardwareSerial Serial;
 
-class OLED_display {
+class OLED_display : public Adafruit_SSD1306 {
     public:
         OLED_display();
         bool begin();

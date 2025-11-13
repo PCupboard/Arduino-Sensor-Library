@@ -6,7 +6,6 @@
 #include <OLED_display.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
-//extern HardwareSerial Serial;
 
 OLED_display::OLED_display() :
 
