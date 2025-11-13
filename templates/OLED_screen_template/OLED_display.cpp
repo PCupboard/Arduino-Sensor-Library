@@ -9,26 +9,30 @@
 
 OLED_display::OLED_display() :
 
-    display(SCREEN_WIDTH, SCREEN_WIDTH, &Wire, OLED_RESET) {
+    Adafruit_SSD1306(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET) {
 }
+/*
+Adafruit_SSD1306 OLED_display::getDisplay() {
+    return display;
+}*/
 
-bool OLED_display::begin() {
+void OLED_display::initializeDisplay() {
 
-    if (!display.begin(SSD1306_SWITCHCAPVCC, OLED_ADDR)) {
+    if (!begin(SSD1306_SWITCHCAPVCC, OLED_ADDR)) {
         // 0x3C er standard I2C-adresse
         Serial.println(F("Could not find a OLED screen with the I2C protocol"));
         while (true);
     }
+    Wire.beginTransmission(OLED_ADDR);
     Serial.println(F("OLED is operational!"));
-    display.setTextColor(SSD1306_WHITE);
-    display.clearDisplay();
-    return true;
+    setTextColor(colorWhite);
+    setTextSize(1);
+    clearDisplay();
 }
 
-void OLED_display::clear()
-{
-    display.clearDisplay();
-    display.setCursor(0, 0);
-    delay(100);
+
+void OLED_display::clear() {
+    clearDisplay();
+    setCursor(0, 0);
 }
 

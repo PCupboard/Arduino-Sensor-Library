@@ -996,7 +996,7 @@ uint8_t *Adafruit_SSD1306::getBuffer(void) { return buffer; }
             called. Call after each graphics command, or after a whole set
             of graphics commands, as best needed by one's own application.
 */
-void Adafruit_SSD1306::display(void) {
+void Adafruit_SSD1306::Adafruit_SSD1306(void) {
   TRANSACTION_START
   static const uint8_t PROGMEM dlist1[] = {
       SSD1306_PAGEADDR,

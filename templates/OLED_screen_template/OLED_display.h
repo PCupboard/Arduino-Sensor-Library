@@ -16,11 +16,14 @@ extern HardwareSerial Serial;
 class OLED_display : public Adafruit_SSD1306 {
     public:
         OLED_display();
-        bool begin();
-        void clear();
-        Adafruit_SSD1306 display;
 
-    private:
+        //Adafruit_SSD1306 getDisplay();
+        void initializeDisplay();
+        void updateDisplay();
+        void clear();
+        int colorWhite = SSD1306_WHITE;
+
+        private:
 };
 
 

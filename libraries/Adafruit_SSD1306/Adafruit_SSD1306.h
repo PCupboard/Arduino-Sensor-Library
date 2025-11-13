@@ -149,7 +149,7 @@ public:
 
   bool begin(uint8_t switchvcc = SSD1306_SWITCHCAPVCC, uint8_t i2caddr = 0,
              bool reset = true, bool periphBegin = true);
-  void display(void);
+  void Adafruit_SSD1306(void);
   void clearDisplay(void);
   void invertDisplay(bool i);
   void dim(bool dim);
