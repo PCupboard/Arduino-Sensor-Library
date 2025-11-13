@@ -1,5 +1,6 @@
 //
 // Created by PCUpboard on 10.11.2025.
+// Header file for OLED screen.
 //
 #ifndef ARDUINO_SENSOR_LIBRARY_OLED_TEMPLATE_H
 #define ARDUINO_SENSOR_LIBRARY_OLED_TEMPLATE_H
