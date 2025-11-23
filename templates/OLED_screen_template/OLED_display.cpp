@@ -11,10 +11,6 @@ OLED_display::OLED_display() :
 
     Adafruit_SSD1306(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET) {
 }
-/*
-Adafruit_SSD1306 OLED_display::getDisplay() {
-    return display;
-}*/
 
 void OLED_display::initializeDisplay() {
 
@@ -30,9 +26,29 @@ void OLED_display::initializeDisplay() {
     clearDisplay();
 }
 
-
 void OLED_display::clear() {
     clearDisplay();
     setCursor(0, 0);
 }
+
+void OLED_display::printLine(const signed int line, const String& text, const signed int textSize = 1) {
+    lineHeight = 8 * textSize;   // base font height * size
+    y = line * lineHeight;
+    setTextSize(textSize);
+    setCursor(0, y);
+    print(text);
+    // no display() here -> call show() after drawing everything
+}
+
+void OLED_display::drawOnScreen(const String& printText, const int printValue) {
+    print(printText);
+    print(": ");
+    println(printValue);
+}
+
+void OLED_display::updateDisplay()
+{
+    display();
+}
+
 

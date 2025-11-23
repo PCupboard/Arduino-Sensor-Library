@@ -77,6 +77,7 @@ const byte FM17522_firmware_reference[] PROGMEM = {
 
 class MFRC522 {
 public:
+	virtual ~MFRC522() = default;
 	// Size of the MFRC522 FIFO
 	static constexpr byte FIFO_SIZE = 64;		// The FIFO is 64 bytes.
 	// Default value for unused pin

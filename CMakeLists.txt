@@ -23,6 +23,8 @@ set(WIRE_PATH "${ARDUINO_CORE_LIBRARIES_PATH}/Wire/src")
 set(BUSIO_PATH "libraries/Adafruit_BusIO")
 set(SSD1306_PATH "libraries/Adafruit_SSD1306")
 set(GFX_PATH "libraries/Adafruit_GFX_Library")
+set(MFRC522 "libraries/MFRC522/src")
+set(SSD1306_SMALL_PATH "libraries/SSD1306Ascii/src")
 
 include_directories(
         "${WIRE_PATH}"
@@ -30,17 +32,25 @@ include_directories(
         "${BUSIO_PATH}"
         "${SSD1306_PATH}"
         "${GFX_PATH}"
+        "${MFRC522}"
+        "${SSD1306_SMALL_PATH}"
 
         "${ARDUINO_CORES_PATH}"
         "${ARDUINO_CORES_PATH}"
         "${ARDUINO_VARIANTS_PATH}"
 
         "templates/OLED_screen_template"
+        "templates/RFID_RC522_template"
+        "templates/OLED_small_lib_template"
         )
 
 add_executable(Arduino_Sensor_Library
         templates/OLED_screen_template/OLED_display.cpp
-        )
+        templates/RFID_RC522_template/RFID_reader.cpp
+        templates/keypad_template/Keypad.cpp
+        templates/OLED_small_lib_template/OLED_small_lib.cpp
+        templates/OLED_small_lib_template/OLED_small_lib.h
+)
 
 target_compile_definitions(Arduino_Sensor_Library PRIVATE
         ARDUINO=10805
